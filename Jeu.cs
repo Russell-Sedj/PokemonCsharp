@@ -40,14 +40,18 @@ namespace ConsoleApp1
 
                 Console.WriteLine("Round " + nombreRounds);
                 
-                Pokemon pokemon1 = joueurs[0].RecupererPokemon(nombreRounds);
-                Pokemon pokemon2 = joueurs[1].RecupererPokemon(nombreRounds);
+                Pokemon pokemon1 = joueurs[0].RecupererPokemon(nombreRounds - 1);
+                Pokemon pokemon2 = joueurs[1].RecupererPokemon(nombreRounds - 1);
 
                 while (pokemon1.PointsDeVie > 0 && pokemon2.PointsDeVie > 0)
                 {
+                    // Choix des attaques
+                    Console.WriteLine($"{joueurs[0].Nom} choisissez une attaque :");
                     Attaque attaque1 = joueurs[0].ChoisirAttaque(pokemon1);
+                    Console.WriteLine($"{joueurs[1].Nom} choisissez une attaque :");
                     Attaque attaque2 = joueurs[1].ChoisirAttaque(pokemon2);
 
+                    // Debut des hostilités
                     if (pokemon1.Vitesse >= pokemon2.Vitesse)
                     {
                         pokemon1.Attaquer(pokemon2, attaque1);
@@ -65,6 +69,8 @@ namespace ConsoleApp1
                         }
                     }
                 }
+
+                // Verification du vainqueur
                 if (pokemon1.EstKO() || !pokemon1.ADesPPDisponibles())
                 {
                     joueurs[1].MancheGagnee++;
