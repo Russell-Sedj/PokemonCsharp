@@ -26,6 +26,38 @@ namespace ConsoleApp1
             this.pokemons = new List<Pokemon>();
         }
 
+        public void ChoisirPokemon()
+        {
+            List<Pokemon> pokemonsDisponibles = new List<Pokemon>
+            {
+                new Pokemon("Pikachu", 100, new List<string> { "Électrique" }, 35, 5, 55, 50, 40, 50, 90, 
+                    new List<Attaque> { new Attaque("Éclair", "Électrique", "spéciale", 100, 40, 30) }),
+                new Pokemon("Bulbizarre", 150, new List<string> { "Plante", "Poison" }, 45, 5, 49, 65, 49, 65, 45, 
+                    new List<Attaque> { new Attaque("Fouet Lianes", "Plante", "physique", 100, 45, 25) }),
+                new Pokemon("Salamèche", 200, new List<string> { "Feu" }, 39, 5, 52, 60, 43, 50, 65, 
+                    new List<Attaque> { new Attaque("Flammèche", "Feu", "spéciale", 100, 40, 25) }),
+            };
+
+            Console.WriteLine("Choisissez 3 Pokémon parmi la liste suivante :");
+            for (int i = 0; i < pokemonsDisponibles.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}. {pokemonsDisponibles[i].Nom}");
+            }
+            for (int i = 0; i < 3; i++)
+            {
+                int choix = int.Parse(Console.ReadLine()) - 1;
+                if (choix >=0 & choix <= pokemonsDisponibles.Count)
+                {
+                    AjouterPokemon(pokemonsDisponibles[choix]);
+                }
+                else
+                {
+                    Console.WriteLine("Choix invalide.");
+                    i--;
+                }
+            }
+        }
+
         public void AjouterPokemon(Pokemon pokemon)
         {
             this.pokemons.Add(pokemon);
