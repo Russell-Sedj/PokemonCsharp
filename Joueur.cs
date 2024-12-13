@@ -22,7 +22,7 @@ namespace ConsoleApp1
         {
             this.nom = nom;
             this.mancheGagnee = 0;
-            this.argent = 500;
+            this.argent = 1000;
             this.pokemons = new List<Pokemon>();
         }
 
@@ -131,7 +131,12 @@ namespace ConsoleApp1
                 {
                     AjouterPokemon(pokemonsDisponibles[choix]);
                     this.argent -= pokemonsDisponibles[choix].Prix;
+                    if (this.argent < 0)
+                    {
+                        this.argent = 0;
+                    }
                     Console.WriteLine($"Vous avez choisi {pokemonsDisponibles[choix].Nom}");
+                    
                     Console.WriteLine("Il vous reste " + this.argent + " pieces");
                 }
                 else
