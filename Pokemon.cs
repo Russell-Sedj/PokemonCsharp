@@ -30,6 +30,7 @@ namespace ConsoleApp1
         public int Defense { get => defense; }
         public int DefenseSpeciale { get => defenseSpeciale; }
         public int Vitesse { get => vitesse; }
+        public List<Attaque> Attaques { get => attaques; }
 
         public Pokemon(string nom, int prix, List<string> types, int pointsDeVie, int niveau, int attaque, int attaqueSpeciale, int defense, int defenseSpeciale, int vitesse, List<Attaque> attaques)
         {
