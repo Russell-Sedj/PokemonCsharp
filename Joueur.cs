@@ -46,7 +46,7 @@ namespace ConsoleApp1
             for (int i = 0; i < 3; i++)
             {
                 int choix = int.Parse(Console.ReadLine()) - 1;
-                if (choix >= 0 & choix <= pokemonsDisponibles.Count)
+                if (choix >= 0 && choix <= pokemonsDisponibles.Count)
                 {
                     AjouterPokemon(pokemonsDisponibles[choix]);
                     this.argent -= pokemonsDisponibles[choix].Prix;
@@ -72,7 +72,7 @@ namespace ConsoleApp1
                 Console.WriteLine($"{i + 1}. {pokemon.Attaques[i].Nom}");
             }
             int choix = int.Parse(Console.ReadLine()) - 1;
-            while (choix < 0 & choix > pokemon.Attaques.Count)
+            while (choix < 0 || choix > pokemon.Attaques.Count)
             {
                 Console.WriteLine("Choix invalide.");
                 choix = int.Parse(Console.ReadLine()) - 1;
@@ -82,7 +82,7 @@ namespace ConsoleApp1
 
         public Pokemon RecupererPokemon(int numeroPokemon)
         {
-            return this.pokemons[numeroPokemon - 1];
+            return this.pokemons[numeroPokemon];
         }
 
         public void AfficherPokemons()
