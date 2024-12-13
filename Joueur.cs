@@ -28,15 +28,42 @@ namespace ConsoleApp1
 
         public void ChoisirPokemon()
         {
-            List<Pokemon> pokemonsDisponibles = new List<Pokemon>
-            {
-                new Pokemon("Pikachu", 100, new List<string> { "Électrique" }, 35, 5, 55, 50, 40, 50, 90,
-                    new List<Attaque> { new Attaque("Éclair", "Électrique", "spéciale", 100, 40, 30) }),
-                new Pokemon("Bulbizarre", 150, new List<string> { "Plante", "Poison" }, 45, 5, 49, 65, 49, 65, 45,
-                    new List<Attaque> { new Attaque("Fouet Lianes", "Plante", "physique", 100, 45, 25) }),
-                new Pokemon("Salamèche", 200, new List<string> { "Feu" }, 39, 5, 52, 60, 43, 50, 65,
-                    new List<Attaque> { new Attaque("Flammèche", "Feu", "spéciale", 100, 40, 25) }),
-            };
+            List<Pokemon> pokemonsDisponibles = new List<Pokemon>();
+
+            // Création des attaques
+            Attaque eclair = new Attaque("Éclair", "Électrique", "spéciale", 100, 40, 30);
+            Attaque fouetLianes = new Attaque("Fouet Lianes", "Plante", "physique", 100, 45, 25);
+            Attaque flammeche = new Attaque("Flammèche", "Feu", "spéciale", 100, 40, 25);
+            Attaque pistoletAO = new Attaque("Pistolet à O", "Eau", "spéciale", 100, 40, 25);
+            Attaque charge = new Attaque("Charge", "Normal", "physique", 100, 50, 35);
+            Attaque morsure = new Attaque("Morsure", "Ténèbres", "physique", 100, 60, 25);
+
+            // Création des Pokémon
+            Pokemon pikachu = new Pokemon("Pikachu", 100, new List<string> { "Électrique" }, 35, 5, 55, 50, 40, 50, 90);
+            pikachu.AjouterAttaque(eclair);
+
+            Pokemon bulbizarre = new Pokemon("Bulbizarre", 150, new List<string> { "Plante", "Poison" }, 45, 5, 49, 65, 49, 65, 45);
+            bulbizarre.AjouterAttaque(fouetLianes);
+
+            Pokemon salameche = new Pokemon("Salamèche", 200, new List<string> { "Feu" }, 39, 5, 52, 60, 43, 50, 65);
+            salameche.AjouterAttaque(flammeche);
+
+            Pokemon carapuce = new Pokemon("Carapuce", 150, new List<string> { "Eau" }, 44, 5, 48, 50, 65, 64, 43);
+            carapuce.AjouterAttaque(pistoletAO);
+
+            Pokemon rattata = new Pokemon("Rattata", 50, new List<string> { "Normal" }, 30, 5, 56, 25, 35, 35, 72);
+            rattata.AjouterAttaque(charge);
+
+            Pokemon evoli = new Pokemon("Évoli", 100, new List<string> { "Normal" }, 55, 5, 55, 45, 50, 65, 55);
+            evoli.AjouterAttaque(morsure);
+
+            // Ajout des Pokémon à la liste des Pokémon disponibles
+            pokemonsDisponibles.Add(pikachu);
+            pokemonsDisponibles.Add(bulbizarre);
+            pokemonsDisponibles.Add(salameche);
+            pokemonsDisponibles.Add(carapuce);
+            pokemonsDisponibles.Add(rattata);
+            pokemonsDisponibles.Add(evoli);
 
             Console.WriteLine("Choisissez 3 Pokémon parmi la liste suivante :");
             for (int i = 0; i < pokemonsDisponibles.Count; i++)
@@ -72,7 +99,7 @@ namespace ConsoleApp1
                 Console.WriteLine($"{i + 1}. {pokemon.Attaques[i].Nom}");
             }
             int choix = int.Parse(Console.ReadLine()) - 1;
-            while (choix < 0 || choix > pokemon.Attaques.Count)
+            while (choix < 0 || choix >= pokemon.Attaques.Count)
             {
                 Console.WriteLine("Choix invalide.");
                 choix = int.Parse(Console.ReadLine()) - 1;
