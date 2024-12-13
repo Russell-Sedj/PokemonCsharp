@@ -14,23 +14,84 @@ namespace ConsoleApp1
         public Jeu()
         {
             this.joueurs = new List<Joueur>();
-            this.nombreRounds = 3;
+            Jouer();
         }
 
         public void Jouer()
         {
+            this.nombreRounds = 0;
+            this.joueurs.Clear();
+
             Console.WriteLine("Entrez le nom du joueur :");
             string nom = Console.ReadLine();
             joueurs.Add(new Joueur(nom));
             Console.WriteLine("Choisissez vos pokemons :");
             joueurs[0].ChoisirPokemon();
+
             Console.WriteLine("Entrez le nom du joueur 2 :");
             nom = Console.ReadLine();
             joueurs.Add(new Joueur(nom));
             Console.WriteLine("Choisissez vos pokemons :");
             joueurs[1].ChoisirPokemon();
 
+            while (nombreRounds < 3)
+            {
+                nombreRounds++;
 
+                Console.WriteLine("Round " + nombreRounds);
+                
+                Pokemon pokemon1 = joueurs[0].RecupererPokemon(nombreRounds);
+                Pokemon pokemon2 = joueurs[1].RecupererPokemon(nombreRounds);
+
+                while (pokemon1.PointsDeVie > 0 && pokemon2.PointsDeVie > 0)
+                {
+                    Attaque attaque1 = joueurs[0].ChoisirAttaque(pokemon1);
+                    Attaque attaque2 = joueurs[1].ChoisirAttaque(pokemon2);
+
+                    if (pokemon1.Vitesse >= pokemon2.Vitesse)
+                    {
+                        pokemon1.Attaquer(pokemon2, attaque1);
+                        if (!pokemon2.EstKO())
+                        {
+                            pokemon2.Attaquer(pokemon1, attaque2);
+                        }
+                    }
+                    else
+                    {
+                        pokemon2.Attaquer(pokemon1, attaque2);
+                        if (!pokemon1.EstKO())
+                        {
+                            pokemon1.Attaquer(pokemon2, attaque1);
+                        }
+                    }
+                }
+                if (pokemon1.EstKO() || !pokemon1.ADesPPDisponibles())
+                {
+                    joueurs[1].MancheGagnee++;
+                }
+                if (pokemon2.EstKO() || !pokemon2.ADesPPDisponibles())
+                {
+                    joueurs[0].MancheGagnee++;
+                }
+            }
+
+            //Determiner le gagnant
+            if (joueurs[0].MancheGagnee > joueurs[1].MancheGagnee)
+            {
+                Console.WriteLine($"{joueurs[0].Nom} a gagne le jeu");
+            }
+            else
+            {
+                Console.WriteLine($"{joueurs[1].Nom} a gagne le jeu");
+            }
+
+            // Demander si les joueurs veulent rejouer
+            Console.WriteLine("Voulez-vous rejouer ? (oui/non)");
+            string reponse = Console.ReadLine();
+            if (reponse.ToLower() == "oui")
+            {
+                Jouer();
+            }
         }
     }
 }
