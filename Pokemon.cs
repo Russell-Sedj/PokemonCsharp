@@ -32,7 +32,7 @@ namespace ConsoleApp1
         public int Vitesse { get => vitesse; }
         public List<Attaque> Attaques { get => attaques; }
 
-        public Pokemon(string nom, int prix, List<string> types, int pointsDeVie, int niveau, int attaque, int attaqueSpeciale, int defense, int defenseSpeciale, int vitesse, List<Attaque> attaques)
+        public Pokemon(string nom, int prix, List<string> types, int pointsDeVie, int niveau, int attaque, int attaqueSpeciale, int defense, int defenseSpeciale, int vitesse)
         {
             this.nom = nom;
             this.prix = prix;
@@ -44,7 +44,7 @@ namespace ConsoleApp1
             this.defense = defense;
             this.defenseSpeciale = defenseSpeciale;
             this.vitesse = vitesse;
-            this.attaques = attaques;
+            this.attaques = new List<Attaque>();
         }
 
         public void AjouterAttaque(Attaque attaque)
