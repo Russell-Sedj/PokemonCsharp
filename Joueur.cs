@@ -68,15 +68,19 @@ namespace ConsoleApp1
             Console.WriteLine("Choisissez 3 Pokémon parmi la liste suivante :");
             for (int i = 0; i < pokemonsDisponibles.Count; i++)
             {
-                Console.WriteLine($"{i + 1}. {pokemonsDisponibles[i].Nom}");
+                //donne le nom et le prix du pokemon
+                Console.WriteLine($"{i + 1}. {pokemonsDisponibles[i].Nom} - {pokemonsDisponibles[i].Prix} Poké Dollars");
             }
             for (int i = 0; i < 3; i++)
             {
+                Console.WriteLine("Choix n°" + (i+1));
                 int choix = int.Parse(Console.ReadLine()) - 1;
                 if (choix >= 0 && choix <= pokemonsDisponibles.Count)
                 {
                     AjouterPokemon(pokemonsDisponibles[choix]);
                     this.argent -= pokemonsDisponibles[choix].Prix;
+                    Console.WriteLine($"Vous avez choisi {pokemonsDisponibles[choix].Nom}");
+                    Console.WriteLine("Il vous reste " + this.argent + " pieces");
                 }
                 else
                 {
@@ -93,7 +97,6 @@ namespace ConsoleApp1
 
         public Attaque ChoisirAttaque(Pokemon pokemon)
         {
-            Console.WriteLine("Choisissez une attaque :");
             for (int i = 0; i < pokemon.Attaques.Count; i++)
             {
                 Console.WriteLine($"{i + 1}. {pokemon.Attaques[i].Nom}");
@@ -101,7 +104,7 @@ namespace ConsoleApp1
             int choix = int.Parse(Console.ReadLine()) - 1;
             while (choix < 0 || choix >= pokemon.Attaques.Count)
             {
-                Console.WriteLine("Choix invalide.");
+                Console.WriteLine("Choix de numero d'attaque invalide.");
                 choix = int.Parse(Console.ReadLine()) - 1;
             }
             return pokemon.Attaques[choix];
@@ -128,7 +131,7 @@ namespace ConsoleApp1
             Console.WriteLine("Infos Joueur : ");
             Console.WriteLine("Nom : " + this.nom);
             Console.WriteLine("Manche gagnée : " + this.mancheGagnee);
-            Console.WriteLine("Argent : " + this.argent);
+            Console.WriteLine("Argent : " + this.argent + " Poké Dollars");
         }
     }
 }
