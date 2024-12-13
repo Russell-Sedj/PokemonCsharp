@@ -18,11 +18,11 @@ namespace ConsoleApp1
         public int Argent { get => argent; }
         public List<Pokemon> Pokemons { get => pokemons; }
 
-        public Joueur(string nom, int mancheGagnee, int argent)
+        public Joueur(string nom)
         {
             this.nom = nom;
-            this.mancheGagnee = mancheGagnee;
-            this.argent = argent;
+            this.mancheGagnee = 0;
+            this.argent = 500;
             this.pokemons = new List<Pokemon>();
         }
 
