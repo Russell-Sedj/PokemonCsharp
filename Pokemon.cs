@@ -66,6 +66,19 @@ namespace ConsoleApp1
             return this.pointsDeVie <= 0;
         }
 
+        //Ca cest une methode que j'ai ajoute volontairement
+        public bool ADesPPDisponibles()
+        {
+            foreach (Attaque attaque in this.attaques)
+            {
+                if (attaque.Pp > 0)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public void AfficherAttaques()
         {
             Console.WriteLine("Attaques de " + this.nom + " :");
