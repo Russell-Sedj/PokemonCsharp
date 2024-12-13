@@ -79,6 +79,11 @@ namespace ConsoleApp1
                 {
                     joueurs[0].MancheGagnee++;
                 }
+
+                Console.WriteLine("--------Statut des joueurs---------");
+                joueurs[0].Afficher();
+                Console.WriteLine("-----------");
+                joueurs[1].Afficher();
             }
 
             //Determiner le gagnant
