@@ -49,6 +49,7 @@ namespace ConsoleApp1
                 if (choix >= 0 & choix <= pokemonsDisponibles.Count)
                 {
                     AjouterPokemon(pokemonsDisponibles[choix]);
+                    this.argent -= pokemonsDisponibles[choix].Prix;
                 }
                 else
                 {
