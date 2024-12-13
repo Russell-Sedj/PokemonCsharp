@@ -63,7 +63,10 @@ namespace ConsoleApp1
 
         public bool EstKO()
         {
-            Console.WriteLine($"{this.nom} est KO.");
+            if (this.pointsDeVie <= 0)
+            {
+                Console.WriteLine($"{this.nom} est KO.");
+            }
             return this.pointsDeVie <= 0;
         }
 
