@@ -14,7 +14,7 @@ namespace ConsoleApp1
         List<Pokemon> pokemons;
 
         public string Nom { get => nom; }
-        public int MancheGagnee { get => mancheGagnee; }
+        public int MancheGagnee { get => mancheGagnee; set => mancheGagnee = value; }
         public int Argent { get => argent; }
         public List<Pokemon> Pokemons { get => pokemons; }
 
