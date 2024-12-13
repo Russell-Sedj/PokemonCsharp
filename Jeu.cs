@@ -38,7 +38,7 @@ namespace ConsoleApp1
             {
                 nombreRounds++;
 
-                Console.WriteLine("Round " + nombreRounds);
+                Console.WriteLine("-----------Round " + nombreRounds + "-----------");
                 
                 Pokemon pokemon1 = joueurs[0].RecupererPokemon(nombreRounds - 1);
                 Pokemon pokemon2 = joueurs[1].RecupererPokemon(nombreRounds - 1);
@@ -87,6 +87,7 @@ namespace ConsoleApp1
             }
 
             //Determiner le gagnant
+            Console.WriteLine("-----------Fin du jeu-----------");
             if (joueurs[0].MancheGagnee > joueurs[1].MancheGagnee)
             {
                 Console.WriteLine($"{joueurs[0].Nom} a gagne le jeu");
