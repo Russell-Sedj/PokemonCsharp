@@ -25,13 +25,13 @@ namespace ConsoleApp1
             Console.WriteLine("Entrez le nom du joueur :");
             string nom = Console.ReadLine();
             joueurs.Add(new Joueur(nom));
-            Console.WriteLine("Choisissez vos pokemons :");
+            Console.WriteLine($"Vous avez {joueurs[0].Argent} pieces");
             joueurs[0].ChoisirPokemon();
 
             Console.WriteLine("Entrez le nom du joueur 2 :");
             nom = Console.ReadLine();
+            Console.WriteLine($"Vous avez {joueurs[1].Argent} pieces");
             joueurs.Add(new Joueur(nom));
-            Console.WriteLine("Choisissez vos pokemons :");
             joueurs[1].ChoisirPokemon();
 
             while (nombreRounds < 3)
