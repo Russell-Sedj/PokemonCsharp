@@ -28,31 +28,27 @@ namespace ConsoleApp1
 
         public void ChoisirPokemon()
         {
-            // J'ai mis un multiplicateur de dégâts au cas ou je veux vite tester le jeu, de base c'est a 1
-            int multiplicateurDegats = 3;
-
-            // Création des attaques avec dégâts augmentés
-            Attaque eclair = new Attaque("Éclair", "Électrique", "spéciale", 100, 40 * multiplicateurDegats, 30);
-            Attaque fouetLianes = new Attaque("Fouet Lianes", "Plante", "physique", 100, 45 * multiplicateurDegats, 25);
-            Attaque flammeche = new Attaque("Flammèche", "Feu", "spéciale", 100, 40 * multiplicateurDegats, 25);
-            Attaque pistoletAO = new Attaque("Pistolet à O", "Eau", "spéciale", 100, 40 * multiplicateurDegats, 25);
-            Attaque charge = new Attaque("Charge", "Normal", "physique", 100, 50 * multiplicateurDegats, 35);
-            Attaque morsure = new Attaque("Morsure", "Ténèbres", "physique", 100, 60 * multiplicateurDegats, 25);
-            Attaque griffe = new Attaque("Griffe", "Normal", "physique", 100, 40 * multiplicateurDegats, 30);
-            Attaque psyko = new Attaque("Psyko", "Psychique", "spéciale", 100, 70 * multiplicateurDegats, 20);
-            Attaque lueur = new Attaque("Lueur", "Fée", "spéciale", 100, 50 * multiplicateurDegats, 30);
-            Attaque morsureAcier = new Attaque("Morsure Acier", "Acier", "physique", 100, 80 * multiplicateurDegats, 25);
-            Attaque tonnerre = new Attaque("Tonnerre", "Électrique", "spéciale", 90, 110 * multiplicateurDegats, 15);
-            Attaque viveAttaque = new Attaque("Vive-Attaque", "Normal", "physique", 100, 40 * multiplicateurDegats, 30);
-            Attaque queueDeFer = new Attaque("Queue de Fer", "Acier", "physique", 75, 100 * multiplicateurDegats, 15);
-            Attaque lanceSoleil = new Attaque("Lance-Soleil", "Plante", "spéciale", 100, 120 * multiplicateurDegats, 10);
-            Attaque dracoRage = new Attaque("Draco-Rage", "Dragon", "spéciale", 100, 40 * multiplicateurDegats, 10);
-            Attaque hydrocanon = new Attaque("Hydrocanon", "Eau", "spéciale", 80, 120 * multiplicateurDegats, 5);
-            Attaque flammesInferno = new Attaque("Flammes Inferno", "Feu", "spéciale", 50, 100 * multiplicateurDegats, 5);
-            Attaque ultralaser = new Attaque("Ultralaser", "Normal", "spéciale", 90, 150 * multiplicateurDegats, 5);
-            Attaque toxic = new Attaque("Toxik", "Poison", "statut", 90, 0, 10); // Pas de changement pour les attaques de statut
-            Attaque ventViolent = new Attaque("Vent Violent", "Vol", "spéciale", 70, 110 * multiplicateurDegats, 10);
-
+            // Création des attaques
+            Attaque eclair = new Attaque("Éclair", "Électrique", "spéciale", 100, 40, 30);
+            Attaque fouetLianes = new Attaque("Fouet Lianes", "Plante", "physique", 100, 45, 25);
+            Attaque flammeche = new Attaque("Flammèche", "Feu", "spéciale", 100, 40, 25);
+            Attaque pistoletAO = new Attaque("Pistolet à O", "Eau", "spéciale", 100, 40, 25);
+            Attaque charge = new Attaque("Charge", "Normal", "physique", 100, 50, 35);
+            Attaque morsure = new Attaque("Morsure", "Ténèbres", "physique", 100, 60, 25);
+            Attaque griffe = new Attaque("Griffe", "Normal", "physique", 100, 40, 30);
+            Attaque psyko = new Attaque("Psyko", "Psychique", "spéciale", 100, 70, 20);
+            Attaque lueur = new Attaque("Lueur", "Fée", "spéciale", 100, 50, 30);
+            Attaque morsureAcier = new Attaque("Morsure Acier", "Acier", "physique", 100, 80, 25);
+            Attaque tonnerre = new Attaque("Tonnerre", "Électrique", "spéciale", 90, 110, 15);
+            Attaque viveAttaque = new Attaque("Vive-Attaque", "Normal", "physique", 100, 40, 30);
+            Attaque queueDeFer = new Attaque("Queue de Fer", "Acier", "physique", 75, 100, 15);
+            Attaque lanceSoleil = new Attaque("Lance-Soleil", "Plante", "spéciale", 100, 120, 10);
+            Attaque dracoRage = new Attaque("Draco-Rage", "Dragon", "spéciale", 100, 40, 10);
+            Attaque hydrocanon = new Attaque("Hydrocanon", "Eau", "spéciale", 80, 120, 5);
+            Attaque flammesInferno = new Attaque("Flammes Inferno", "Feu", "spéciale", 50, 100, 5);
+            Attaque ultralaser = new Attaque("Ultralaser", "Normal", "spéciale", 90, 150, 5);
+            Attaque toxic = new Attaque("Toxik", "Poison", "statut", 90, 0, 10);
+            Attaque ventViolent = new Attaque("Vent Violent", "Vol", "spéciale", 70, 110, 10);
 
             // Création des Pokémon
             List<Pokemon> pokemonsDisponibles = new List<Pokemon>();
