@@ -73,10 +73,12 @@ namespace ConsoleApp1
                 // Verification du vainqueur
                 if (pokemon1.EstKO() || !pokemon1.ADesPPDisponibles())
                 {
+                    Console.WriteLine($"{pokemon1.Nom} est KO.");
                     joueurs[1].MancheGagnee++;
                 }
                 if (pokemon2.EstKO() || !pokemon2.ADesPPDisponibles())
                 {
+                    Console.WriteLine($"{pokemon2.Nom} est KO.");
                     joueurs[0].MancheGagnee++;
                 }
 
