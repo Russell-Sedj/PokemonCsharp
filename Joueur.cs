@@ -28,95 +28,96 @@ namespace ConsoleApp1
 
         public void ChoisirPokemon()
         {
-            List<Pokemon> pokemonsDisponibles = new List<Pokemon>();
+            // J'ai mis un multiplicateur de dégâts au cas ou je veux vite tester le jeu, de base c'est a 1
+            int multiplicateurDegats = 3;
 
-            // Création des attaques
-            Attaque eclair = new Attaque("Éclair", "Électrique", "spéciale", 100, 40, 30);
-            Attaque fouetLianes = new Attaque("Fouet Lianes", "Plante", "physique", 100, 45, 25);
-            Attaque flammeche = new Attaque("Flammèche", "Feu", "spéciale", 100, 40, 25);
-            Attaque pistoletAO = new Attaque("Pistolet à O", "Eau", "spéciale", 100, 40, 25);
-            Attaque charge = new Attaque("Charge", "Normal", "physique", 100, 50, 35);
-            Attaque morsure = new Attaque("Morsure", "Ténèbres", "physique", 100, 60, 25);
-            Attaque griffe = new Attaque("Griffe", "Normal", "physique", 100, 40, 30);
-            Attaque attaqueCharge = new Attaque("Attaque Charge", "Normal", "physique", 100, 30, 40);
-            Attaque psyko = new Attaque("Psyko", "Psychique", "spéciale", 100, 70, 20);
-            Attaque lueur = new Attaque("Lueur", "Fée", "spéciale", 100, 50, 30);
-            Attaque morsureAcier = new Attaque("Morsure Acier", "Acier", "physique", 100, 80, 25);
+            // Création des attaques avec dégâts augmentés
+            Attaque eclair = new Attaque("Éclair", "Électrique", "spéciale", 100, 40 * multiplicateurDegats, 30);
+            Attaque fouetLianes = new Attaque("Fouet Lianes", "Plante", "physique", 100, 45 * multiplicateurDegats, 25);
+            Attaque flammeche = new Attaque("Flammèche", "Feu", "spéciale", 100, 40 * multiplicateurDegats, 25);
+            Attaque pistoletAO = new Attaque("Pistolet à O", "Eau", "spéciale", 100, 40 * multiplicateurDegats, 25);
+            Attaque charge = new Attaque("Charge", "Normal", "physique", 100, 50 * multiplicateurDegats, 35);
+            Attaque morsure = new Attaque("Morsure", "Ténèbres", "physique", 100, 60 * multiplicateurDegats, 25);
+            Attaque griffe = new Attaque("Griffe", "Normal", "physique", 100, 40 * multiplicateurDegats, 30);
+            Attaque psyko = new Attaque("Psyko", "Psychique", "spéciale", 100, 70 * multiplicateurDegats, 20);
+            Attaque lueur = new Attaque("Lueur", "Fée", "spéciale", 100, 50 * multiplicateurDegats, 30);
+            Attaque morsureAcier = new Attaque("Morsure Acier", "Acier", "physique", 100, 80 * multiplicateurDegats, 25);
+            Attaque tonnerre = new Attaque("Tonnerre", "Électrique", "spéciale", 90, 110 * multiplicateurDegats, 15);
+            Attaque viveAttaque = new Attaque("Vive-Attaque", "Normal", "physique", 100, 40 * multiplicateurDegats, 30);
+            Attaque queueDeFer = new Attaque("Queue de Fer", "Acier", "physique", 75, 100 * multiplicateurDegats, 15);
+            Attaque lanceSoleil = new Attaque("Lance-Soleil", "Plante", "spéciale", 100, 120 * multiplicateurDegats, 10);
+            Attaque dracoRage = new Attaque("Draco-Rage", "Dragon", "spéciale", 100, 40 * multiplicateurDegats, 10);
+            Attaque hydrocanon = new Attaque("Hydrocanon", "Eau", "spéciale", 80, 120 * multiplicateurDegats, 5);
+            Attaque flammesInferno = new Attaque("Flammes Inferno", "Feu", "spéciale", 50, 100 * multiplicateurDegats, 5);
+            Attaque ultralaser = new Attaque("Ultralaser", "Normal", "spéciale", 90, 150 * multiplicateurDegats, 5);
+            Attaque toxic = new Attaque("Toxik", "Poison", "statut", 90, 0, 10); // Pas de changement pour les attaques de statut
+            Attaque ventViolent = new Attaque("Vent Violent", "Vol", "spéciale", 70, 110 * multiplicateurDegats, 10);
+
 
             // Création des Pokémon
+            List<Pokemon> pokemonsDisponibles = new List<Pokemon>();
+
             Pokemon pikachu = new Pokemon("Pikachu", 100, new List<string> { "Électrique" }, 35, 5, 55, 50, 40, 50, 90);
             pikachu.AjouterAttaque(eclair);
-            pikachu.AjouterAttaque(charge);
-            pikachu.AjouterAttaque(morsure);
+            pikachu.AjouterAttaque(tonnerre);
+            pikachu.AjouterAttaque(queueDeFer);
+            pokemonsDisponibles.Add(pikachu);
 
             Pokemon bulbizarre = new Pokemon("Bulbizarre", 150, new List<string> { "Plante", "Poison" }, 45, 5, 49, 65, 49, 65, 45);
             bulbizarre.AjouterAttaque(fouetLianes);
-            bulbizarre.AjouterAttaque(griffe);
-            bulbizarre.AjouterAttaque(pistoletAO);
+            bulbizarre.AjouterAttaque(lanceSoleil);
+            bulbizarre.AjouterAttaque(toxic);
+            pokemonsDisponibles.Add(bulbizarre);
 
             Pokemon salameche = new Pokemon("Salamèche", 200, new List<string> { "Feu" }, 39, 5, 52, 60, 43, 50, 65);
             salameche.AjouterAttaque(flammeche);
-            salameche.AjouterAttaque(griffe);
-            salameche.AjouterAttaque(charge);
+            salameche.AjouterAttaque(flammesInferno);
+            salameche.AjouterAttaque(dracoRage);
+            pokemonsDisponibles.Add(salameche);
 
             Pokemon carapuce = new Pokemon("Carapuce", 150, new List<string> { "Eau" }, 44, 5, 48, 50, 65, 64, 43);
             carapuce.AjouterAttaque(pistoletAO);
-            carapuce.AjouterAttaque(charge);
-            carapuce.AjouterAttaque(morsure);
+            carapuce.AjouterAttaque(hydrocanon);
+            carapuce.AjouterAttaque(viveAttaque);
+            pokemonsDisponibles.Add(carapuce);
 
             Pokemon rattata = new Pokemon("Rattata", 50, new List<string> { "Normal" }, 30, 5, 56, 25, 35, 35, 72);
             rattata.AjouterAttaque(charge);
             rattata.AjouterAttaque(griffe);
-            rattata.AjouterAttaque(morsure);
+            rattata.AjouterAttaque(viveAttaque);
+            pokemonsDisponibles.Add(rattata);
 
             Pokemon evoli = new Pokemon("Évoli", 100, new List<string> { "Normal" }, 55, 5, 55, 45, 50, 65, 55);
             evoli.AjouterAttaque(morsure);
-            evoli.AjouterAttaque(griffe);
             evoli.AjouterAttaque(lueur);
-
-            Pokemon tyranocif = new Pokemon("Tyranocif", 300, new List<string> { "Roche", "Ténèbres" }, 100, 10, 134, 110, 90, 100, 61);
-            tyranocif.AjouterAttaque(morsureAcier);
-            tyranocif.AjouterAttaque(flammeche);
-            tyranocif.AjouterAttaque(psyko);
-
-            Pokemon dracolosse = new Pokemon("Dracolosse", 350, new List<string> { "Dragon", "Vol" }, 91, 10, 134, 95, 80, 105, 100);
-            dracolosse.AjouterAttaque(flammeche);
-            dracolosse.AjouterAttaque(psyko);
-            dracolosse.AjouterAttaque(pistoletAO);
-
-            Pokemon joliscar = new Pokemon("Joliscar", 220, new List<string> { "Insecte", "Poison" }, 70, 10, 100, 75, 70, 80, 85);
-            joliscar.AjouterAttaque(fouetLianes);
-            joliscar.AjouterAttaque(psyko);
-            joliscar.AjouterAttaque(morsure);
-
-            Pokemon aquali = new Pokemon("Aquali", 200, new List<string> { "Eau" }, 65, 10, 95, 65, 65, 85, 110);
-            aquali.AjouterAttaque(pistoletAO);
-            aquali.AjouterAttaque(lueur);
-            aquali.AjouterAttaque(charge);
-
-            Pokemon arcanin = new Pokemon("Arcanin", 250, new List<string> { "Feu" }, 90, 10, 110, 100, 80, 90, 95);
-            arcanin.AjouterAttaque(flammeche);
-            arcanin.AjouterAttaque(griffe);
-            arcanin.AjouterAttaque(morsure);
+            evoli.AjouterAttaque(charge);
+            pokemonsDisponibles.Add(evoli);
 
             Pokemon tyranitar = new Pokemon("Tyranitar", 400, new List<string> { "Roche", "Ténèbres" }, 100, 10, 134, 110, 90, 100, 61);
             tyranitar.AjouterAttaque(morsureAcier);
-            tyranitar.AjouterAttaque(flammeche);
             tyranitar.AjouterAttaque(psyko);
+            tyranitar.AjouterAttaque(flammesInferno);
+            pokemonsDisponibles.Add(tyranitar);
 
-            // Ajout des Pokémon à la liste des Pokémon disponibles
-            pokemonsDisponibles.Add(pikachu);
-            pokemonsDisponibles.Add(bulbizarre);
-            pokemonsDisponibles.Add(salameche);
-            pokemonsDisponibles.Add(carapuce);
-            pokemonsDisponibles.Add(rattata);
-            pokemonsDisponibles.Add(evoli);
-            pokemonsDisponibles.Add(tyranocif);
+            Pokemon dracolosse = new Pokemon("Dracolosse", 350, new List<string> { "Dragon", "Vol" }, 91, 10, 134, 95, 80, 105, 100);
+            dracolosse.AjouterAttaque(dracoRage);
+            dracolosse.AjouterAttaque(ventViolent);
+            dracolosse.AjouterAttaque(ultralaser);
             pokemonsDisponibles.Add(dracolosse);
-            pokemonsDisponibles.Add(joliscar);
+
+            Pokemon aquali = new Pokemon("Aquali", 200, new List<string> { "Eau" }, 65, 10, 95, 65, 65, 85, 110);
+            aquali.AjouterAttaque(hydrocanon);
+            aquali.AjouterAttaque(lueur);
+            aquali.AjouterAttaque(toxic);
             pokemonsDisponibles.Add(aquali);
 
+            Pokemon arcanin = new Pokemon("Arcanin", 250, new List<string> { "Feu" }, 90, 10, 110, 100, 80, 90, 95);
+            arcanin.AjouterAttaque(flammesInferno);
+            arcanin.AjouterAttaque(ultralaser);
+            arcanin.AjouterAttaque(griffe);
+            pokemonsDisponibles.Add(arcanin);
 
+            // Choix des pokémons
             Console.WriteLine("Choisissez 3 Pokémon parmi la liste suivante :");
             for (int i = 0; i < pokemonsDisponibles.Count; i++)
             {
